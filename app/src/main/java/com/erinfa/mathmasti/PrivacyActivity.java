@@ -20,7 +20,7 @@ public class PrivacyActivity extends Activity {
         WebView web_view = findViewById(R.id.web_view);
 
 
-        web_view.loadUrl("file:///privacy_policy.html");
+        web_view.loadUrl("https://pages.flycricket.io/maths-learning-for-k/privacy.html");
 
     }//oncreate
 
