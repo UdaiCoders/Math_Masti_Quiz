@@ -1,6 +1,7 @@
 package com.erinfa.mathmasti;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import android.annotation.SuppressLint;
@@ -13,11 +14,16 @@ import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.speech.tts.TextToSpeech;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.erinfa.mathmasti.utils.Constant;
 import com.erinfa.mathmasti.utils.CustomDialogClass;
@@ -40,6 +46,9 @@ public class QuestionActivity extends Activity implements RewardedVideoAdListene
     public static Context contextstat;
     public static ProgressDialog pDialog;
     RelativeLayout bganimation;
+
+    TextToSpeech textToSpeech;
+    Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +79,17 @@ public class QuestionActivity extends Activity implements RewardedVideoAdListene
 
         setQuestionView();
         times.setText("00:00:60");
+        textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int i) {
+
+                // if No error is found then only it will run
+                if(i!=TextToSpeech.ERROR){
+                    // To Choose language of speech
+                    textToSpeech.setLanguage(Locale.UK);
+                }
+            }
+        });
 
 
         CounterClass timer = new CounterClass(Constant.time_inseconds * 1000, 1000);
@@ -111,6 +131,15 @@ public class QuestionActivity extends Activity implements RewardedVideoAdListene
         pDialog.setCanceledOnTouchOutside(false);
         pDialog.setCancelable(false);
 
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.custom_toast, (ViewGroup) findViewById(R.id.toastLayout));
+
+
+        toast= new Toast(getApplicationContext());
+        toast.setGravity(Gravity.BOTTOM, 0, 0);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
+
     }//oncreate
 
 
@@ -126,10 +155,11 @@ public class QuestionActivity extends Activity implements RewardedVideoAdListene
 
     public void getAnswer(String AnswerString) {
         if (currentQ.getANSWER().equals(AnswerString)) {
-
-
             score++;
             scored.setText(getString(R.string.score) + " " + score);
+            textToSpeech.speak(AnswerString,TextToSpeech.QUEUE_FLUSH,null);
+            toast.show();
+           // Toast.makeText(getApplicationContext(),"Write Answer is  "+AnswerString,Toast.LENGTH_SHORT).show();
         } else {
 
             Intent intent = new Intent(QuestionActivity.this, ResultActivity.class);

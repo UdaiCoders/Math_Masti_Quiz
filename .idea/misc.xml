@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/user/StudioProjects/Math Quiz/Math Quiz/Android/math-quiz/app/src/main/res/drawable-v24/background.xml" value="0.1205" />
         <entry key="..\:/Users/user/StudioProjects/Math Quiz/Math Quiz/Android/math-quiz/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/user/StudioProjects/Math Quiz/Math Quiz/Android/math-quiz/app/src/main/res/layout/activity_options.xml" value="0.1" />
         <entry key="..\:/Users/user/StudioProjects/Math Quiz/Math Quiz/Android/math-quiz/app/src/main/res/layout/activity_privacy.xml" value="0.12409420289855072" />
         <entry key="..\:/Users/user/StudioProjects/Math Quiz/Math Quiz/Android/math-quiz/app/src/main/res/layout/activity_question.xml" value="0.1" />
         <entry key="..\:/Users/user/StudioProjects/Math Quiz/Math Quiz/Android/math-quiz/app/src/main/res/layout/activity_result.xml" value="0.1" />
         <entry key="..\:/Users/user/StudioProjects/Math Quiz/Math Quiz/Android/math-quiz/app/src/main/res/layout/custom_dialog.xml" value="0.1" />
+        <entry key="..\:/Users/user/StudioProjects/Math Quiz/Math Quiz/Android/math-quiz/app/src/main/res/layout/custom_toast.xml" value="0.12409420289855072" />
         <entry key="..\:/Users/user/StudioProjects/Math Quiz/Math Quiz/Android/math-quiz/app/src/main/res/layout/options_menu.xml" value="0.1" />
         <entry key="..\:/Users/user/StudioProjects/Math Quiz/Math Quiz/Android/math-quiz/app/src/main/res/layout/splash.xml" value="0.12409420289855072" />
         <entry key="..\:/Users/user/StudioProjects/Math Quiz/Math Quiz/Android/math-quiz/app/src/main/res/layout/won.xml" value="0.1" />
